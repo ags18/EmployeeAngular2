@@ -1,0 +1,27 @@
+<h2>HEROES</h2>
+<input type="text" [(ngModel)]="searchText" 
+class="form-control" placeholder="Search By Category" />
+<table class="table">
+<tr>
+    <th>select</th>
+    <th (click)="sort('id')">id</th>
+    <th  (click)="sort('fname')">fname</th>
+    <th>lastname</th>
+    <th>email</th>
+    <th>Joining Date</th>
+    <th>Action</th>				
+</tr>
+<tr *ngFor="let hero of heroes | category:searchText| orderBy: {property: column, direction: direction}">
+    <td><input type="checkbox" (click)="Selected(hero)"></td>
+    <td>{{ hero.id }}</td>
+    <td>{{ hero.fname }}</td>
+    <td>{{ hero.lastname }}</td>
+    <td>{{ hero.email }}</td>
+    <td>{{ hero.joiningDate }}</td>
+    
+    <td><a [routerLink]="['/hero', hero.id]">edit</a></td>
+    <td><a (click)="deleteHero(hero)">delete</a></td>
+</tr>
+<button routerLink="/sidekicks">Go to sidekicks</button>
+<button (click)="exportSelected()" class="btn btn-primary">Export selected</button>
+<button (click)="exportToExcel()" class="btn btn-primary">Export to excel</button>
