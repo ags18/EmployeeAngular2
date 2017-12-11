@@ -25,6 +25,7 @@ const HEROES = [
 
 @Injectable()
 export class HeroService {
+  id:number=17;
   getHeroes() { return Observable.of(HEROES); }
 
   getHero(id: number | string) {
@@ -47,6 +48,7 @@ export class HeroService {
      }
    }
    add(addHero:Hero){
+     addHero.id=this.id++;
      HEROES.push(addHero);
 
    }
