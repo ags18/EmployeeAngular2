@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name: 'category' })
 export class CategoryPipe implements PipeTransform {
-  transform(heroes: any, searchText: any): any {
-    if(searchText == null) return heroes;
+  transform(employees: any, searchText: any): any {
+    if(searchText == null) return employees;
     
 
-    return heroes.filter(function(hero){
-      return hero.fname.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+    return employees.filter(function(employee){
+      return employee.fname.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
       //.CategoryName.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
     })
   }

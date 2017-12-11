@@ -1,0 +1,48 @@
+<h2>employeeES</h2>
+
+  <form [formGroup]="employeeForm">
+      <div class="form-group">
+        <label class="center-block">Name:
+          <input class="form-control" formControlName="fname">
+        </label>
+        <div *ngIf="employeeForm.get('fname').invalid && (employeeForm.get('fname').dirty || employeeForm.get('fname').touched)" class="alert alert-danger">
+          <div *ngIf="employeeForm.get('fname').errors['required']">
+            Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+          <label class="center-block">Last Name:
+            <input class="form-control" formControlName="lastname" >
+          </label>
+          <div *ngIf="employeeForm.get('lastname').invalid && (employeeForm.get('lastname').dirty || employeeForm.get('lastname').touched)" class="alert alert-danger">
+              <div *ngIf="employeeForm.get('lastname').errors['required']">
+                last Name is required.
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="center-block">Email:
+              <input class="form-control" formControlName="email" >
+            </label>
+            <div *ngIf="employeeForm.get('email').invalid && (employeeForm.get('email').dirty || employeeForm.get('email').touched)" class="alert alert-danger">
+                <div *ngIf="employeeForm.get('email').errors['required']">
+                  email is required.
+                </div>
+                <div *ngIf="employeeForm.get('email').errors['email']">
+                  enter email
+                  </div>
+              </div>
+          </div>
+        <div class="form-group">
+          <label class="center-block">Joining Date:
+            <input class="form-control" formControlName="joiningDate" >
+          </label>
+          <div *ngIf="employeeForm.get('joiningDate').invalid && (employeeForm.get('joiningDate').dirty || employeeForm.get('joiningDate').touched)" class="alert alert-danger">
+              <div *ngIf="employeeForm.get('joiningDate').errors['required']">
+                joiningDate is required.
+              </div>
+            </div>
+        </div>
+        <button class="btn btn-info" [disabled]="!employeeForm.valid" (click)="gotoEmployees();">{{id?"Edit":"Add"}}</button>
+      </form>

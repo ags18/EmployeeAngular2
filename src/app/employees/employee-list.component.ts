@@ -4,19 +4,19 @@
 // import { Component, OnInit } from '@angular/core';
 // import { ActivatedRoute, ParamMap } from '@angular/router';
 
-// import { Hero, HeroService}  from './hero.service';
+// import { Employee, EmployeeService}  from './employee.service';
 // import { ExcelService } from '../excel.service';
 // import { Pipe, PipeTransform } from '@angular/core';
 
 
 
 // @Component({
-//   templateUrl: './hero-list.component.html', 
+//   templateUrl: './employee-list.component.html', 
 // })
-// export class HeroListComponent implements OnInit {
-//   //heroes: Observable<Hero[]>;
-//   heroes: Hero[];
-//   herooo: Hero[]=[];
+// export class EmployeeListComponent implements OnInit {
+//   //employees: Observable<Employee[]>;
+//   employees: Employee[];
+//   employeeoo: Employee[]=[];
 
 //   private selectedId: number;
 //   isDesc: boolean = false;
@@ -25,26 +25,26 @@
 //   checked:boolean=false;
 
 //   constructor(
-//     private service: HeroService,
+//     private service: EmployeeService,
 //     private route: ActivatedRoute,
 //     private excelService: ExcelService
 //   ) {
 //     this.excelService = excelService;
-//     //this.herooo=this.service.getHeroes()
+//     //this.employeeoo=this.service.getEmployees()
 //   }
 
 //   ngOnInit() {
-//     return this.service.getHeroes().subscribe((data)=>{console.log(data);this.heroes=data})
+//     return this.service.getEmployees().subscribe((data)=>{console.log(data);this.employees=data})
 //   }
 
-//   deleteHero(hero:Hero){
+//   deleteEmployee(employee:Employee){
 //       var del=confirm("do you want to delete?");
 //       if(del==true){
-//         this.heroes.forEach((value,index)=>{
-//           if(value.id==hero.id){
+//         this.employees.forEach((value,index)=>{
+//           if(value.id==employee.id){
 //             if (index !== -1) {
 //               console.log("splice delete");
-//               this.heroes.splice(index, 1);
+//               this.employees.splice(index, 1);
 //             }
 //           }
 //         });
@@ -53,30 +53,30 @@
 
 //   toggleSelect(){
 //     this.checked=!this.checked;
-//     this.checked?this.herooo=this.heroes:this.herooo=[];
+//     this.checked?this.employeeoo=this.employees:this.employeeoo=[];
 //   }
 
-//   select(value:boolean,hero:Hero){
+//   select(value:boolean,employee:Employee){
 //     alert(value);
-//     alert(hero.id);
-//     if(value==true) this.herooo.push(hero);
+//     alert(employee.id);
+//     if(value==true) this.employeeoo.push(employee);
 //     if(value==false){
-//       this.herooo.forEach((value,index)=>{
-//         if(value.id==hero.id){
+//       this.employeeoo.forEach((value,index)=>{
+//         if(value.id==employee.id){
 //           if (index !== -1) {
-//             console.log("splice herooo");
-//             this.herooo.splice(index, 1);
+//             console.log("splice employeeoo");
+//             this.employeeoo.splice(index, 1);
 //           }
 //         }
 //       });
 //     }
-//     this.herooo.forEach(function(her){
+//     this.employeeoo.forEach(function(her){
 //       console.log(her.id);
 //     })
 //   }
 
 //   exportSelected(event) {
-//     this.herooo.length>0?this.excelService.exportAsExcelFile(this.herooo, 'heroes'):alert("check atleast 1 employee");
+//     this.employeeoo.length>0?this.excelService.exportAsExcelFile(this.employeeoo, 'employees'):alert("check atleast 1 employee");
 //   }
 
 //   sort(property){
@@ -84,7 +84,7 @@
 //     this.column = property;
 //     let direction = this.isDesc ? 1 : -1;
 
-//     this.heroes.sort(function(a, b){
+//     this.employees.sort(function(a, b){
 //         if(a[property] < b[property]){
 //             return -1 * direction;
 //         }
@@ -105,19 +105,19 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { Hero, HeroService } from './hero.service';
+import { Employee, EmployeeService } from './employee.service';
 import { ExcelService } from '../excel.service';
 import { Pipe, PipeTransform } from '@angular/core';
 
 
 
 @Component({
-  templateUrl: './hero-list.component.html',
+  templateUrl: './employee-list.component.html',
 })
-export class HeroListComponent implements OnInit {
-  //heroes: Observable<Hero[]>;
-  heroes: Hero[];
-  herooo: Hero[] = [];
+export class EmployeeListComponent implements OnInit {
+  //employees: Observable<Employee[]>;
+  employees: Employee[];
+  employeeoo: Employee[] = [];
 
   private selectedId: number;
   isDesc: boolean = false;
@@ -126,26 +126,26 @@ export class HeroListComponent implements OnInit {
   checked: boolean = false;
 
   constructor(
-    private service: HeroService,
+    private service: EmployeeService,
     private route: ActivatedRoute,
     private excelService: ExcelService
   ) {
     this.excelService = excelService;
-    //this.herooo=this.service.getHeroes()
+    //this.employeeoo=this.service.getEmployeees()
   }
 
   ngOnInit() {
-    return this.service.getHeroes().subscribe((data) => { console.log(data); this.heroes = data })
+    return this.service.getEmployees().subscribe((data) => { console.log(data); this.employees = data })
   }
 
-  deleteHero(hero: Hero) {
+  deleteEmployee(employee: Employee) {
     var a = confirm("do you want to delete?");
     if (a == true) {
-      this.heroes.forEach((value, index) => {
-        if (value.id == hero.id) {
+      this.employees.forEach((value, index) => {
+        if (value.id == employee.id) {
           if (index !== -1) {
             console.log("splice delete");
-            this.heroes.splice(index, 1);
+            this.employees.splice(index, 1);
           }
         }
       });
@@ -156,43 +156,43 @@ export class HeroListComponent implements OnInit {
     this.checked = !this.checked;
     console.log("Toggle select all", this.checked);
     if (this.checked) {
-      this.herooo = this.heroes;
+      this.employeeoo = this.employees;
     } else {
-      this.herooo = [];
+      this.employeeoo = [];
     }
-    console.log("Selected users", this.herooo);
+    console.log("Selected users", this.employeeoo);
   }
 
-  toggleSelect(isSelected: boolean, hero: Hero) {
+  toggleSelect(isSelected: boolean, employee: Employee) {
     console.log("toggleSelect ", isSelected);
-    console.log("toggleSelect ", hero.id);
+    console.log("toggleSelect ", employee.id);
     if (isSelected) {
-      this.herooo.push(hero)
+      this.employeeoo.push(employee)
     } else {
-      let index = this.herooo.indexOf(hero);
-      this.herooo.splice(index, 1);
+      let index = this.employeeoo.indexOf(employee);
+      this.employeeoo.splice(index, 1);
       console.log("Index to be spliced ", index);
     }
-    console.log("Selected users", this.herooo);
+    console.log("Selected users", this.employeeoo);
 
   }
   exportSelected(event) {
-    if (this.herooo.length > 0) {
-      this.excelService.exportAsExcelFile(this.herooo, 'heroes');
+    if (this.employeeoo.length > 0) {
+      this.excelService.exportAsExcelFile(this.employeeoo, 'employees');
     }
     else {
       alert("check atleast 1 employee");
     }
   }
   // exportToExcel(event) {
-  //   this.excelService.exportAsExcelFile(this.heroes, 'heroes');
+  //   this.excelService.exportAsExcelFile(this.employees, 'employees');
   // }
   sort(property) {
     this.isDesc = !this.isDesc; //change the direction    
     this.column = property;
     let direction = this.isDesc ? 1 : -1;
 
-    this.heroes.sort(function (a, b) {
+    this.employees.sort(function (a, b) {
       if (a[property] < b[property]) {
         return -1 * direction;
       }

@@ -2,12 +2,12 @@ import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 import { FormsModule,ReactiveFormsModule }    from '@angular/forms';
 
-import { HeroListComponent }    from './hero-list.component';
-import { HeroDetailComponent }  from './hero-detail.component';
+import { EmployeeListComponent }    from './employee-list.component';
+import { EmployeeDetailComponent }  from './employee-detail.component';
 
-import { HeroService } from './hero.service';
+import { EmployeeService } from './employee.service';
 
-import { HeroRoutingModule } from './heroes-routing.module';
+import { EmployeeRoutingModule } from './employees-routing.module';
 import { CategoryPipe } from '../category.pipe';
 import { OrderrByPipe } from '../order-by.pipe';
 
@@ -15,15 +15,15 @@ import { OrderrByPipe } from '../order-by.pipe';
   imports: [
     CommonModule,
     FormsModule,
-    HeroRoutingModule,
+    EmployeeRoutingModule,
     ReactiveFormsModule
   ],
   declarations: [
-    HeroListComponent,
-    HeroDetailComponent,
+    EmployeeListComponent,
+    EmployeeDetailComponent,
     CategoryPipe,
     OrderrByPipe
   ],
-  providers: [ HeroService ]
+  providers: [ EmployeeService ]
 })
-export class HeroesModule {}
+export class EmployeesModule {}

@@ -5,10 +5,10 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeroesModule }     from './heroes/heroes.module';
+import { EmployeesModule }     from './employees/employees.module';
 
 import { CrisisListComponent }   from './crisis-list.component';
-//import { HeroListComponent }     from './hero-list.component';
+//import { employeListComponent }     from './employe-list.component';
 import { PageNotFoundComponent }     from './page-not-found.component';
 import { CategoryPipe } from './category.pipe';
 import { ExcelService } from './excel.service';
@@ -16,7 +16,7 @@ import { ExcelService } from './excel.service';
 @NgModule({
   declarations: [
     AppComponent,
-    //HeroListComponent,
+    //employeListComponent,
     CrisisListComponent,
     PageNotFoundComponent,
     //CategoryPipe
@@ -25,7 +25,7 @@ import { ExcelService } from './excel.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HeroesModule,
+    EmployeesModule,
     AppRoutingModule,
   ],
   providers: [ExcelService],

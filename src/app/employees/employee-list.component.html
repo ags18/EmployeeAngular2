@@ -1,4 +1,4 @@
-<!--<h2>HEROES</h2>
+<!--<h2>employeeES</h2>
 <input type="text" [(ngModel)]="searchText" 
 class="form-control" placeholder="Search By Category" />
 <table class="table">
@@ -12,21 +12,21 @@ class="form-control" placeholder="Search By Category" />
     <th>Joining Date</th>
     <th colspan="2">Actions</th>				
 </tr>
-<tr *ngFor="let hero of heroes | category:searchText| orderBy: {property: column, direction: direction}">
-    <td><input type="checkbox" (change)="toggleSelect(check.checked,hero)" value={{hero}} #check [checked]="checked"></td>
-    <td>{{ hero.id }}</td>
-    <td>{{ hero.fname }}</td>
-    <td>{{ hero.lastname }}</td>
-    <td>{{ hero.email }}</td>
-    <td>{{ hero.joiningDate }}</td>
+<tr *ngFor="let employee of employees | category:searchText| orderBy: {property: column, direction: direction}">
+    <td><input type="checkbox" (change)="toggleSelect(check.checked,employee)" value={{employee}} #check [checked]="checked"></td>
+    <td>{{ employee.id }}</td>
+    <td>{{ employee.fname }}</td>
+    <td>{{ employee.lastname }}</td>
+    <td>{{ employee.email }}</td>
+    <td>{{ employee.joiningDate }}</td>
     
-    <td><a [routerLink]="['/hero', hero.id]">edit</a></td>
-    <td><a (click)="deleteHero(hero)">delete</a></td>
+    <td><a [routerLink]="['/employee', employee.id]">edit</a></td>
+    <td><a (click)="deleteEmployee(employee)">delete</a></td>
 </tr>
 <button (click)="exportSelected()" class="btn btn-primary">Export selected</button>
-<button class="btn" [routerLink]="['/hero']">add hero</button>-->
+<button class="btn" [routerLink]="['/employee']">add employee</button>-->
 <div class="container-fluid">
-    <h2>HEROES</h2>
+    <h2>employeeES</h2>
     <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search By Category" />
     <table class="table">
       <tr>
@@ -40,29 +40,29 @@ class="form-control" placeholder="Search By Category" />
         <th>Joining Date</th>
         <th colspan="2">Actions</th>
       </tr>
-      <tr *ngFor="let hero of heroes | category:searchText| orderBy: {property: column, direction: direction}">
-        <!--<td><input type="checkbox" (click)="Selected(hero)" value={{hero}} name="select" ></td>-->
+      <tr *ngFor="let employee of employees | category:searchText| orderBy: {property: column, direction: direction}">
+        <!--<td><input type="checkbox" (click)="Selected(employee)" value={{employee}} name="select" ></td>-->
         <td>
-          <input type="checkbox" (change)="toggleSelect(check.checked,hero)" value={{hero}} #check [checked]="checked">
+          <input type="checkbox" (change)="toggleSelect(check.checked,employee)" value={{employee}} #check [checked]="checked">
         </td>
-        <td>{{ hero.id }}</td>
-        <td>{{ hero.fname }}</td>
-        <td>{{ hero.lastname }}</td>
-        <td>{{ hero.email }}</td>
-        <td>{{ hero.joiningDate }}</td>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.fname }}</td>
+        <td>{{ employee.lastname }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.joiningDate }}</td>
   
         <td>
-          <a [routerLink]="['/hero', hero.id]" class="btn btn-warning">Edit</a>
+          <a [routerLink]="['/employee', employee.id]" class="btn btn-warning">Edit</a>
         </td>
         <td>
-          <a (click)="deleteHero(hero)" class="btn btn-danger">Delete</a>
+          <a (click)="deleteEmployee(employee)" class="btn btn-danger">Delete</a>
         </td>
       </tr>
     </table>
     <div class="row">
       <div class="col-sm-3">
         <button (click)="exportSelected()" class="btn btn-primary pull-left">Export selected</button>
-        <button class="btn" [routerLink]="['/hero']" class="btn btn-sucess pull-right">Add hero</button>
+        <button class="btn" [routerLink]="['/employee']" class="btn btn-sucess pull-right">Add employee</button>
       </div>
   
     </div>
