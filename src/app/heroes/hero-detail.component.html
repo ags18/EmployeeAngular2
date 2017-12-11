@@ -1,56 +1,9 @@
 <h2>HEROES</h2>
 
-<div *ngIf="hero$ | async as hero">
-<!--<form #heroForm="ngForm">
-        <div class="form-group">
-          <label for="fname">First Name</label>
-          <input type="text" class="form-control" id="fname" required name="fname" [(ngModel)]="hero.fname" #fname="ngModel">
-          <div [hidden]="fname.valid || fname.pristine"
-               class="alert alert-danger">
-            Name is required
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="lastname">Last Name</label>
-          <input type="text" class="form-control" id="lastname" required name="lastname" [(ngModel)]="hero.lastname" #lastname="ngModel">
-          <div [hidden]="lastname.valid || lastname.pristine"
-               class="alert alert-danger">
-            Name is required
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" required name="email" [(ngModel)]="hero.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" >
-          <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-              <div  *ngIf="email.errors && email.errors.required">
-                  Email is required
-              </div>
-              <div  *ngIf="email.errors && email.errors.pattern">
-                  Email is invalid
-              </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="joiningDate">Joining Date</label>
-          <inputfname type="text" class="form-control" id="joiningDate" required name="joiningDate" [(ngModel)]="hero.joiningDate" #joiningDate="ngModel">
-          <div [hidden]="joiningDate.valid || joiningDate.pristine"
-               class="alert alert-danger">
-            Name is required
-          </div>
-        </div>
-        <button class="btn btn-info" [disabled]="!heroForm.valid" (click)="gotoHeroes(hero)">Edit</button>
-</form>-->
-<!--<form [formGroup]="heroForm">
-    <div class="form-group">
-      <label class="center-block">Name:
-        <input type="text" class="form-control" formControlName="">
-      </label>
-    </div>
-  </form>-->
   <form [formGroup]="heroForm">
       <div class="form-group">
         <label class="center-block">Name:
-          <input class="form-control" formControlName="fname" [(ngModel)]="hero.fname">
+          <input class="form-control" formControlName="fname">
         </label>
         <div *ngIf="heroForm.get('fname').invalid && (heroForm.get('fname').dirty || heroForm.get('fname').touched)" class="alert alert-danger">
           <div *ngIf="heroForm.get('fname').errors['required']">
@@ -60,7 +13,7 @@
       </div>
       <div class="form-group">
           <label class="center-block">Last Name:
-            <input class="form-control" formControlName="lastname" [(ngModel)]="hero.lastname">
+            <input class="form-control" formControlName="lastname" >
           </label>
           <div *ngIf="heroForm.get('lastname').invalid && (heroForm.get('lastname').dirty || heroForm.get('lastname').touched)" class="alert alert-danger">
               <div *ngIf="heroForm.get('lastname').errors['required']">
@@ -70,7 +23,7 @@
         </div>
         <div class="form-group">
             <label class="center-block">Email:
-              <input class="form-control" formControlName="email" [(ngModel)]="hero.email">
+              <input class="form-control" formControlName="email" >
             </label>
             <div *ngIf="heroForm.get('email').invalid && (heroForm.get('email').dirty || heroForm.get('email').touched)" class="alert alert-danger">
                 <div *ngIf="heroForm.get('email').errors['required']">
@@ -83,7 +36,7 @@
           </div>
         <div class="form-group">
           <label class="center-block">Joining Date:
-            <input class="form-control" formControlName="joiningDate" [(ngModel)]="hero.joiningDate">
+            <input class="form-control" formControlName="joiningDate" >
           </label>
           <div *ngIf="heroForm.get('joiningDate').invalid && (heroForm.get('joiningDate').dirty || heroForm.get('joiningDate').touched)" class="alert alert-danger">
               <div *ngIf="heroForm.get('joiningDate').errors['required']">
@@ -91,9 +44,5 @@
               </div>
             </div>
         </div>
-        <button class="btn btn-info" [disabled]="!heroForm.valid" (click)="gotoHeroes(hero)">Edit</button>
-        
+        <button class="btn btn-info" [disabled]="!heroForm.valid" (click)="gotoHeroes();">{{id?"Edit":"Add"}}</button>
       </form>
-      {{heroForm.value |json }}
-      {{heroForm.status}}
-</div>

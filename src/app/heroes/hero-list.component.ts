@@ -22,6 +22,7 @@ export class HeroListComponent implements OnInit {
   isDesc: boolean = false;
   column: string = 'fname';
   direction: number;
+  checked:boolean=false;
 
   constructor(
     private service: HeroService,
@@ -33,35 +34,61 @@ export class HeroListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.heroes$ = this.route.paramMap
-    //   .switchMap((params: ParamMap) => {
-       return this.service.getHeroes().subscribe((data)=>{console.log(data);this.heroes=data})
-        //return this.service.getHeroes();
-     // });
+    return this.service.getHeroes().subscribe((data)=>{console.log(data);this.heroes=data})
   }
+
   deleteHero(hero:Hero){
       var a=confirm("do you want to delete?");
       if(a==true){
-      this.heroes.forEach((value,index)=>{
+        this.heroes.forEach((value,index)=>{
+          if(value.id==hero.id){
+            if (index !== -1) {
+              console.log("splice delete");
+              this.heroes.splice(index, 1);
+            }
+          }
+        });
+      }
+  }
+
+  selectAll(){
+    this.checked=true;
+    this.herooo=this.heroes;
+  }
+
+  deselectAll(){
+    this.herooo=[];
+    this.checked=false;
+  }
+
+  select(value:boolean,hero:Hero){
+    alert(value);
+    alert(hero.id);
+    if(value==true) this.herooo.push(hero);
+    if(value==false){
+      this.herooo.forEach((value,index)=>{
         if(value.id==hero.id){
           if (index !== -1) {
-                  this.heroes.splice(index, 1);
-              }
+            console.log("splice herooo");
+            this.herooo.splice(index, 1);
+          }
         }
-      });}
-  }
-  Selected(hero:Hero){
-    this.herooo.push(hero);
-    alert(hero.id);
+      });
+    }
     alert(this.herooo);
     
   }
   exportSelected(event) {
-    this.excelService.exportAsExcelFile(this.herooo, 'heroes');
+    if(this.herooo.length>0){
+      this.excelService.exportAsExcelFile(this.herooo, 'heroes');
+    }
+    else{
+      alert("check atleast 1 employee");
+    }
   }
-  exportToExcel(event) {
-    this.excelService.exportAsExcelFile(this.heroes, 'heroes');
-  }
+  // exportToExcel(event) {
+  //   this.excelService.exportAsExcelFile(this.heroes, 'heroes');
+  // }
   sort(property){
     this.isDesc = !this.isDesc; //change the direction    
     this.column = property;

@@ -3,16 +3,17 @@
 class="form-control" placeholder="Search By Category" />
 <table class="table">
 <tr>
-    <th>select</th>
+    <th><a (click)="selectAll()"> select All</a><a (click)="deselectAll()"> deselectAll</a></th>
     <th (click)="sort('id')">id</th>
-    <th  (click)="sort('fname')">fname</th>
+    <th (click)="sort('fname')">fname</th>
     <th>lastname</th>
     <th>email</th>
     <th>Joining Date</th>
-    <th>Action</th>				
+    <th colspan="2">Actions</th>				
 </tr>
 <tr *ngFor="let hero of heroes | category:searchText| orderBy: {property: column, direction: direction}">
-    <td><input type="checkbox" (click)="Selected(hero)"></td>
+    <!--<td><input type="checkbox" (click)="Selected(hero)" value={{hero}} name="select" ></td>-->
+    <td><input type="checkbox" (change)="select(check.checked,hero)" value={{hero}} #check [checked]="checked"></td>
     <td>{{ hero.id }}</td>
     <td>{{ hero.fname }}</td>
     <td>{{ hero.lastname }}</td>
@@ -22,6 +23,7 @@ class="form-control" placeholder="Search By Category" />
     <td><a [routerLink]="['/hero', hero.id]">edit</a></td>
     <td><a (click)="deleteHero(hero)">delete</a></td>
 </tr>
-<button routerLink="/sidekicks">Go to sidekicks</button>
+<!--<button routerLink="/sidekicks">Go to sidekicks</button>-->
 <button (click)="exportSelected()" class="btn btn-primary">Export selected</button>
-<button (click)="exportToExcel()" class="btn btn-primary">Export to excel</button>
+<!--<button (click)="exportToExcel()" class="btn btn-primary">Export to excel</button>-->
+<button class="btn" [routerLink]="['/hero']">add hero</button>

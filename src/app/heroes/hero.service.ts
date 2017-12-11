@@ -10,7 +10,7 @@ export class Hero {
     public lastname: string,
     public email: string,
     public joiningDate: string,
-    //public selected: boolean
+    // public selected: boolean
   ) { }
 }
 
@@ -34,5 +34,20 @@ export class HeroService {
   }
 
   deleteHero(delhero:Hero){
+   }
+   edit(id: number,edithero:Hero){
+     for(let hero of HEROES){
+       if(id==hero.id){
+         hero.fname=edithero.fname;
+         hero.lastname=edithero.lastname;
+         hero.email=edithero.email;
+         hero.joiningDate=edithero.joiningDate;
+         break;
+       }
+     }
+   }
+   add(addHero:Hero){
+     HEROES.push(addHero);
+
    }
 }
