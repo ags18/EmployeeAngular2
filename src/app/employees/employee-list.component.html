@@ -1,11 +1,11 @@
-<!--<h2>employeeES</h2>
+<h2>employees</h2>
 <input type="text" [(ngModel)]="searchText" 
-class="form-control" placeholder="Search By Category" />
+class="form-control" placeholder="Search By Category eg. firstname, lastname or email" />
 <table class="table">
 <tr>
     <th><a (click)="toggleSelectAll()">{{checked?"Deselect All":"Select All"}}</a></th>
     <th (click)="sort('id')">id <i class="fa" [ngClass]="{'fa-sort': column != 'id', 'fa-sort-asc': (column == 'id' && isDesc), 'fa-sort-desc': (column == 'id' && !isDesc) }" aria-hidden="true"> </i></th>
-    <th (click)="sort('fname')">fname <i class="fa" [ngClass]="{'fa-sort': column != 'fname', 'fa-sort-asc': (column == 'fname' && isDesc), 'fa-sort-desc': (column == 'fname' && !isDesc) }" aria-hidden="true"> </i>
+    <th (click)="sort('fname')">firstname <i class="fa" [ngClass]="{'fa-sort': column != 'fname', 'fa-sort-asc': (column == 'fname' && isDesc), 'fa-sort-desc': (column == 'fname' && !isDesc) }" aria-hidden="true"> </i>
     </th>
     <th>lastname</th>
     <th>email</th>
@@ -24,47 +24,4 @@ class="form-control" placeholder="Search By Category" />
     <td><a (click)="deleteEmployee(employee)">delete</a></td>
 </tr>
 <button (click)="exportSelected()" class="btn btn-primary">Export selected</button>
-<button class="btn" [routerLink]="['/employee']">add employee</button>-->
-<div class="container-fluid">
-    <h2>employeeES</h2>
-    <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search By Category" />
-    <table class="table">
-      <tr>
-        <th>
-          <a (click)="toggleSelectAll()"> {{checked ? "Deselect": "Select"}} All</a>
-        </th>
-        <th (click)="sort('id')">id</th>
-        <th (click)="sort('fname')">fname</th>
-        <th>lastname</th>
-        <th>email</th>
-        <th>Joining Date</th>
-        <th colspan="2">Actions</th>
-      </tr>
-      <tr *ngFor="let employee of employees | category:searchText| orderBy: {property: column, direction: direction}">
-        <!--<td><input type="checkbox" (click)="Selected(employee)" value={{employee}} name="select" ></td>-->
-        <td>
-          <input type="checkbox" (change)="toggleSelect(check.checked,employee)" value={{employee}} #check [checked]="checked">
-        </td>
-        <td>{{ employee.id }}</td>
-        <td>{{ employee.fname }}</td>
-        <td>{{ employee.lastname }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.joiningDate }}</td>
-  
-        <td>
-          <a [routerLink]="['/employee', employee.id]" class="btn btn-warning">Edit</a>
-        </td>
-        <td>
-          <a (click)="deleteEmployee(employee)" class="btn btn-danger">Delete</a>
-        </td>
-      </tr>
-    </table>
-    <div class="row">
-      <div class="col-sm-3">
-        <button (click)="exportSelected()" class="btn btn-primary pull-left">Export selected</button>
-        <button class="btn" [routerLink]="['/employee']" class="btn btn-sucess pull-right">Add employee</button>
-      </div>
-  
-    </div>
-  </div>
-  
+<button class="btn" [routerLink]="['/employee']">add employee</button>

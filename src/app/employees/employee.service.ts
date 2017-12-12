@@ -10,17 +10,16 @@ export class Employee {
     public lastname: string,
     public email: string,
     public joiningDate: string,
-    // public selected: boolean
   ) { }
 }
 
 const EMPLOYEES = [
-  new Employee(11, 'Mr. Nice','Horse','hj@ssdf.com','12/34/12'),
-  new Employee(12, 'Narco','Horse2','hj@ssdf.com','12/34/12'),
-  new Employee(13, 'Bombasto','Horse3','hj@ssdf.com','12/34/12'),
-  new Employee(14, 'Celeritas','Horse4','hj@ssdf.com','12/34/12'),
-  new Employee(15, 'Magneta','Horse5','hj@ssdf.com','12/34/12'),
-  new Employee(16, 'RubberMan','Horse6','hj@ssdf.com','12/34/12')
+  new Employee(11, 'June','Snow','js@ymail.com','2016-12-13'),
+  new Employee(12, 'May','Day','md@gmail.com','2017-01-15'),
+  new Employee(13, 'April','Peter','ap@mail.com','2017-02-13'),
+  new Employee(14, 'Celeritas','Magnus','cm@mail.com','2017-03-13'),
+  new Employee(15, 'Magneta','kidman','mk@ssdf.com','2017-04-13'),
+  new Employee(16, 'Jake','walter','jw@ssdf.com','2017-05-13')
 ];
 
 @Injectable()
@@ -34,8 +33,6 @@ export class EmployeeService {
       .map(employees => employees.find(employee => employee.id === +id));
   }
 
-  deleteEmployee(delemployee:Employee){
-   }
    edit(id: number,editemployee:Employee){
      for(let employee of EMPLOYEES){
        if(id==employee.id){
@@ -47,6 +44,7 @@ export class EmployeeService {
        }
      }
    }
+   
    add(addEmployee:Employee){
      addEmployee.id=this.id++;
       EMPLOYEES.push(addEmployee);

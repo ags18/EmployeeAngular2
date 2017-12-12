@@ -3,8 +3,6 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-//import { slideInDownAnimation } from '../animations';
-
 import { Employee, EmployeeService }  from './employee.service';
 import { Validators, FormBuilder,FormGroup,FormControl,ReactiveFormsModule } from '@angular/forms';
 
@@ -27,7 +25,7 @@ export class EmployeeDetailComponent implements OnInit {
   ) {  }
 
   createForm() {
-    alert("create form");
+    //alert("create form");
     this.employeeForm = this.fb.group({
       fname: new FormControl('',Validators.required ),
       lastname: new FormControl('',Validators.required ),
@@ -36,7 +34,7 @@ export class EmployeeDetailComponent implements OnInit {
     });
   }
   createEditForm() {
-    alert("createEdit form");
+    //alert("createEdit form");
     this.employeeForm = this.fb.group({
       fname: new FormControl(this.employee.fname,Validators.required ),
       lastname: new FormControl(this.employee.lastname,Validators.required ),
@@ -47,7 +45,6 @@ export class EmployeeDetailComponent implements OnInit {
   ngOnInit() {
     this.id=this.route.snapshot.params['id'];
     this.newEmployee=false;
-    //alert(this.id);
     if(this.id != null){
       this.route.paramMap
       .switchMap((params: ParamMap) =>
@@ -56,7 +53,6 @@ export class EmployeeDetailComponent implements OnInit {
     else{
       this.newEmployee=true;
     }
-    //console.log("asdfasdfasasdf: "+this.newEmployee);
     if(this.newEmployee==true){this.createForm();}
     else{this.createEditForm()};
   }

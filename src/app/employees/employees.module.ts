@@ -12,18 +12,18 @@ import { CategoryPipe } from '../category.pipe';
 import { OrderrByPipe } from '../order-by.pipe';
 
 @NgModule({
-  imports: [
+  imports: [                  //Modules that ur importing
     CommonModule,
     FormsModule,
     EmployeeRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [
+  declarations: [             //the components ur using should go here
     EmployeeListComponent,
     EmployeeDetailComponent,
     CategoryPipe,
     OrderrByPipe
   ],
-  providers: [ EmployeeService ]
+  providers: [ EmployeeService ] //The Services ur using should go here
 })
 export class EmployeesModule {}
