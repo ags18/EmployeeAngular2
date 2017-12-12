@@ -12,7 +12,7 @@ class="form-control" placeholder="Search By Category eg. firstname, lastname or 
     <th>Joining Date</th>
     <th colspan="2">Actions</th>				
 </tr>
-<tr *ngFor="let employee of employees | category:searchText| orderBy: {property: column, direction: direction}">
+<tr *ngFor="let employee of employees | category:searchText">
     <td><input type="checkbox" (change)="toggleSelect(check.checked,employee)" value={{employee}} #check [checked]="checked"></td>
     <td>{{ employee.id }}</td>
     <td>{{ employee.fname }}</td>

@@ -9,7 +9,6 @@ import { EmployeeService } from './employee.service';
 
 import { EmployeeRoutingModule } from './employees-routing.module';
 import { CategoryPipe } from '../category.pipe';
-import { OrderrByPipe } from '../order-by.pipe';
 
 @NgModule({
   imports: [                  //Modules that ur importing
@@ -22,7 +21,6 @@ import { OrderrByPipe } from '../order-by.pipe';
     EmployeeListComponent,
     EmployeeDetailComponent,
     CategoryPipe,
-    OrderrByPipe
   ],
   providers: [ EmployeeService ] //The Services ur using should go here
 })

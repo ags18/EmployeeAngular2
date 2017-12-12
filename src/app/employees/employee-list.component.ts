@@ -1,4 +1,3 @@
-// TODO SOMEDAY: Feature Componetized like CrisisCenter
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
@@ -34,7 +33,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   deleteEmployee(employee:Employee){
-      var del=confirm("do you want to delete?");
+      var del=confirm("Do you want to delete?");
       if(del==true){
         this.employees.forEach((value,index)=>{
           if(value.id==employee.id){
@@ -63,11 +62,10 @@ export class EmployeeListComponent implements OnInit {
       console.log("Index to be spliced ", index);
     }
     console.log("Selected users", this.employeeoo);
-
   }
 
   exportSelected(event) {
-    this.employeeoo.length>0?this.excelService.exportAsExcelFile(this.employeeoo, 'employees'):alert("check atleast 1 employee");
+    this.employeeoo.length>0?this.excelService.exportAsExcelFile(this.employeeoo, 'employees'):alert("Check atleast 1 employee");
   }
 
   sort(property){
@@ -87,7 +85,5 @@ export class EmployeeListComponent implements OnInit {
             return 0;
         }
     });
-};
-    
+};   
 }
-
